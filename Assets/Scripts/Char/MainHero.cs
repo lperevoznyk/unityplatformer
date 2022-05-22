@@ -19,4 +19,9 @@ public class MainHero : MonoBehaviour
         var nextXPosition = transform.position.x + deltaPosition;
         transform.position = new Vector3(nextXPosition, transform.position.y, transform.position.z);
     }
+
+    internal void Fire()
+    {
+        Debug.Log("Fire!");
+    }
 }

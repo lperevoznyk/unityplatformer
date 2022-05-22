@@ -2,30 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MainHeroInputController : MonoBehaviour
 {
+    [SerializeField] private MainHero _mainHero;
 
-    private MainHero _mainHero;
-
-    private void Awake()
+    public void OnHorizontal(InputAction.CallbackContext context)
     {
-        _mainHero = GetComponent<MainHero>();
+        _mainHero.SetDirection(context.ReadValue<float>());
     }
 
-    void Update()
+    public void OnFire(InputAction.CallbackContext context)
     {
-        if (Input.GetKey(KeyCode.A))
+        if (context.started)
         {
-            _mainHero.SetDirection(-1);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            _mainHero.SetDirection(1);
-        }
-        else
-        {
-            _mainHero.SetDirection(0);
+            _mainHero.Fire();
         }
     }
 }
