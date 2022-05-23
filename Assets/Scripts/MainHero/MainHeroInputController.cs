@@ -10,7 +10,7 @@ public class MainHeroInputController : MonoBehaviour
 
     public void OnHorizontal(InputAction.CallbackContext context)
     {
-        _mainHero.SetDirection(context.ReadValue<float>());
+        _mainHero.SetDirection(context.ReadValue<Vector2>());
     }
 
     public void OnFire(InputAction.CallbackContext context)
